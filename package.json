@@ -1,0 +1,24 @@
+{
+    "name": "image-generation-openai",
+    "version": "1.0.0",
+    "description": "OpenAI API client for Node.js",
+    "main": "index.js",
+    "scripts": {
+        "image": "npx tsx imageGeneration.ts"
+    },
+    "keywords": [
+        "openai",
+        "api",
+        "client",
+        "nodejs"
+    ],
+    "author": "Matthew Steckel",
+    "license": "MIT",
+    "dependencies": {
+        "dotenv": "^16.5.0",
+        "openai": "^5.0.1"
+    },
+    "devDependencies": {
+        "@types/node": "^22.15.29"
+    }
+}
