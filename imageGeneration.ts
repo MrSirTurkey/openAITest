@@ -75,7 +75,7 @@ async function main() {
 
     const img = await client.images.generate({
         model: "dall-e-3",
-        prompt: "THIS PROMPT ALREADY CONTAINS ENOUGH DETAIL. DO NOT add any detail, just use it AS-IS with NO TEXT (VERY IMPORTANT): " + prompt,
+        prompt: "THIS PROMPT ALREADY CONTAINS ENOUGH DETAIL. DO NOT add any detail, just use it AS-IS with NO TEXT inside the image (VERY IMPORTANT): " + prompt,
         n: 1,
         size: "1792x1024",
         style: "vivid",
