@@ -3,7 +3,7 @@ import { writeFile } from "fs/promises";
 import dotenv from "dotenv";
 dotenv.config();
 
-import { actions, atmospheres, characters, companionsOrProps, descriptors, environmentalFeatures, roles, settings } from "./consts";
+import { actions, atmospheres, characters, companionsOrProps, descriptors, environmentalFeatures, roles, settings, viewSubjects, viewTypes, visualStyles } from "./consts";
 
 const client = new OpenAI();
 
@@ -12,34 +12,54 @@ function generatePrompt() {
 
     let prompt = "";
 
-    // Section 1: Character/Subject
-    const C = characters;
-    // Randomly select a character from the list
-    prompt += `${C[Math.floor(Math.random() * C.length)]}`;
+    //CASE: Standard character generation
+    if (Math.random() < 0.8) {
+        // Section 1: Character/Subject
+        const C = characters;
+        // Randomly select a character from the list
+        prompt += `${C[Math.floor(Math.random() * C.length)]}`;
 
-    // Section 2: Descriptors (Optional)
-    const D = descriptors;
-    // Randomly select a descriptor from the list, 50% chance to include
-    if (Math.random() < 0.5) {
-        prompt += ` who is ${D[Math.floor(Math.random() * D.length)]}`;
+        // Section 2: Descriptors (Optional)
+        const D = descriptors;
+        // Randomly select a descriptor from the list, 50% chance to include
+        if (Math.random() < 0.5) {
+            prompt += ` who is ${D[Math.floor(Math.random() * D.length)]}`;
+        }
+
+        // Section 3: Role/Identity (Optional)
+        const R = roles;
+        // Randomly select a role from the list, 50% chance to include
+        if (Math.random() < 0.5) {
+            prompt += `, they are ${R[Math.floor(Math.random() * R.length)]}`;
+        }
+
+        // Section 4: Action/Activity
+        const A = actions;
+        prompt += `, ${A[Math.floor(Math.random() * A.length)]}`;
+
+        // Section 5: Companions/Props (Optional)
+        const P = companionsOrProps;
+        // Randomly select a companion or prop from the list, 50% chance to include
+        if (Math.random() < 0.5) {
+            prompt += `, accompanied by ${P[Math.floor(Math.random() * P.length)]}`;
+        }
     }
+    //CASE: Scenic view generation
+    else {
+        // Section 1: View Type
+        const VT = viewTypes;
+        // Randomly select a view type from the list
+        prompt += `${VT[Math.floor(Math.random() * VT.length)]}`;
 
-    // Section 3: Role/Identity (Optional)
-    const R = roles;
-    // Randomly select a role from the list, 50% chance to include
-    if (Math.random() < 0.5) {
-        prompt += `, they are ${R[Math.floor(Math.random() * R.length)]}`;
-    }
+        // Section 2: View Subject
+        const VC = viewSubjects;
+        // Randomly select a view subject from the list
+        prompt += ` of ${VC[Math.floor(Math.random() * VC.length)]}`;
 
-    // Section 4: Action/Activity
-    const A = actions;
-    prompt += `, ${A[Math.floor(Math.random() * A.length)]}`;
-
-    // Section 5: Companions/Props (Optional)
-    const P = companionsOrProps;
-    // Randomly select a companion or prop from the list, 50% chance to include
-    if (Math.random() < 0.5) {
-        prompt += `, accompanied by ${P[Math.floor(Math.random() * P.length)]}`;
+        // Section 3: Visual Style
+        const VisStyle = visualStyles;
+        // Randomly select a visual style from the list
+        prompt += `, ${VisStyle[Math.floor(Math.random() * VisStyle.length)]}`;
     }
 
     // Section 6: Setting/Location
@@ -55,7 +75,7 @@ function generatePrompt() {
     // Section 8: Atmosphere/Mood/Lighting
     const M = atmospheres;
     prompt += `, ${M[Math.floor(Math.random() * M.length)]}`;
-    
+
     return prompt;
 }
 
@@ -64,7 +84,7 @@ async function main() {
     const filename = process.argv[2] || "output.png";
 
     const prompt = generatePrompt();
-    
+
     console.log(`Generating image with filename: ${filename} and prompt: ${prompt}`);
 
     // Write prompt to logfile
