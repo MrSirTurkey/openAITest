@@ -69,7 +69,8 @@ export const characters: string[] = [
   "A sleep-deprived student",
   "A cashier who speaks in rhyme",
   "A grandma who levitates slightly",
-  "A janitor with glowing eyes"
+  "A janitor with glowing eyes",
+  "A fluffy penguin",
 ];
 
 export const descriptors: string[] = [
@@ -105,6 +106,7 @@ export const descriptors: string[] = [
   "dripping with ink",
   "with a mirrored face",
   "carved from ice",
+  "carved from wood",
   "smelling faintly of lavender",
   "held together by light",
   "driven by unknowable logic",
@@ -138,7 +140,9 @@ export const descriptors: string[] = [
   "with post-it notes stuck to their back",
   "leaking coffee",
   "vibrating from stress",
-  "wearing socks that do not match"
+  "wearing socks that do not match",
+  "with a faint smell of burnt toast",
+  "made of an oozy, gooey substance",
 ];
 
 export const roles: string[] = [
@@ -209,7 +213,8 @@ export const roles: string[] = [
   "a frequent flier in dreamspace",
   "a caretaker of forgotten pets",
   "a pigeon negotiator",
-  "a library basement resident"
+  "a library basement resident",
+  "a children's toy",
 ];
 
 export const actions: string[] = [
@@ -260,6 +265,7 @@ export const actions: string[] = [
   "sharing secrets with a forest spirit",
   "combing the clouds with a giant brush",
   "watching constellations rearrange themselves",
+  "trying to escape from inside a book",
 
   // Mundane / Surreal-Normal
   "drinking coffee in total silence",
@@ -274,7 +280,7 @@ export const actions: string[] = [
   "making toast one slice at a time",
   "taking notes in an invisible notebook",
   "sharpening pencils that scream slightly",
-  "changing a lightbulb that won’t stop glowing",
+  "changing a lightbulb that won't stop glowing",
   "eating cereal at midnight",
   "carrying a fish tank with no fish",
   "answering a phone that hasn't rung",
@@ -282,7 +288,8 @@ export const actions: string[] = [
   "ironing an infinite scarf",
   "navigating cubicles in a maze",
   "sleeping under a conference table",
-  "refilling the office water cooler with moonlight"
+  "refilling the office water cooler with moonlight",
+  "surrounded by its children",
 ];
 
 export const companionsOrProps: string[] = [
@@ -325,7 +332,7 @@ export const companionsOrProps: string[] = [
   "a broom that writes poetry",
   "a sock puppet with prophetic visions",
   "a glowing feather that floats behind them",
-  "a floating fishbowl orbiting their head"
+  "a floating fishbowl orbiting their head",
 ];
 
 export const settings: string[] = [
@@ -363,7 +370,8 @@ export const settings: string[] = [
   "a train station with no visible trains",
   "a parking garage beneath the ocean",
   "an apartment where gravity flickers",
-  "a dentist’s office during a thunderstorm",
+  "a dentist's office during a thunderstorm",
+  "an expansive arctic tundra",
 
   // Cross-genre / Weird
   "a café between dimensions",
@@ -375,7 +383,7 @@ export const settings: string[] = [
   "a carnival run by ghosts",
   "a museum of forgotten lives",
   "a skybridge where people speak in riddles",
-  "a motel where time stands still"
+  "a motel where time stands still",
 ];
 
 export const environmentalFeatures: string[] = [
@@ -406,7 +414,7 @@ export const environmentalFeatures: string[] = [
   // Mundane / Surreal
   "fluorescent lights buzzing inconsistently",
   "a ceiling fan spinning far too slowly",
-  "posters peeling off the walls in a breeze that shouldn’t exist",
+  "posters peeling off the walls in a breeze that shouldn't exist",
   "static crackling from an old CRT monitor",
   "endless coffee stains on the floor",
   "rows of identical potted plants, all fake",
@@ -425,7 +433,7 @@ export const environmentalFeatures: string[] = [
   "a faint glow tracing the edges of everything",
   "the air shimmering like a heatwave",
   "time appearing fractured around the edges",
-  "the sound of breathing with no one nearby"
+  "the sound of breathing with no one nearby",
 ];
 
 export const atmospheres: string[] = [
@@ -475,5 +483,5 @@ export const atmospheres: string[] = [
   "weighed down by a strange gravity",
   "moving in slow motion",
   "bending light around every edge",
-  "as if submerged underwater"
+  "as if submerged underwater",
 ];
