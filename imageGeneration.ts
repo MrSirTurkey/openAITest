@@ -43,7 +43,7 @@ function generateCharacterPrompt() {
     const R = roles;
     // Randomly select a role from the list, 50% chance to include
     if (Math.random() < 0.6) {
-        prompt += `acting as ${R[Math.floor(Math.random() * R.length)]}`;
+        prompt += ` acting as ${R[Math.floor(Math.random() * R.length)]}`;
     }
 
     // Section 4: Action/Activity
