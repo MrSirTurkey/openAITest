@@ -588,6 +588,7 @@ export const compositionStyles = [
     "radiating from a central ley line",
     "layered with magical auras",
     "spiraling like an arcane glyph",
+    "inspired by Game of Thrones",
 
     // Sci-fi
     "organized in modular geometric grids",

@@ -119,9 +119,15 @@ function generateScenicPrompt() {
 
 async function main() {
     // Get filename from command line argument or use default
-    const filename = process.argv[2] || "output.png";
+    let filename = process.argv[2];
+    // Generate random filename using current timestamp if not provided
+    if (!filename) {
+        const timestamp = new Date().toISOString().replace(/[:.-]/g, "");
+        // Random string
+        filename = `${timestamp}_${Math.random().toString(36).substring(2, 8)}_image.png`;
+    }
 
-    const prompt = Math.random() < 0.8 ? generateCharacterPrompt() : generateScenicPrompt();
+    const prompt = Math.random() < 0.5 ? generateCharacterPrompt() : generateScenicPrompt();
 
     console.log(`Generating image with filename: ${filename} and prompt: ${prompt}`);
 
@@ -131,12 +137,14 @@ async function main() {
     const date = new Date().toISOString();
     await writeFile(logFilePath, `\n[${date}] Generating image with filename: ${filename} and prompt: ${prompt}\n`, { flag: "a" });
 
+    const systemInstruction = "Create a visual image only. DO NOT modify this prompt. DO NOT add text, words, letters, typography, labels, signs, or writing of any kind in the image. Render exactly as described. The image should be purely visual with no readable text elements whatsoever: ";
+
     const img = await client.images.generate({
         model: "dall-e-3",
-        prompt: "THIS PROMPT ALREADY CONTAINS ENOUGH DETAIL. DO NOT add any detail, DO NOT add any typography, writing or text, just use it AS-IS: " + prompt + "-- no text, no labels, no writing, no words in the image",
+        prompt: systemInstruction + prompt,
         n: 1,
         size: "1792x1024",
-        style: Math.random() < 0.5 ? "vivid" : "natural",
+        style: "vivid",
         response_format: "b64_json",
         quality: "hd"
     });
